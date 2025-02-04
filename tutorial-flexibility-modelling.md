@@ -1,19 +1,17 @@
 # Tutorial on flexibility modeling
-Flexibility modeling in Cyber-Physical Energy Systems is essential to meet different use cases, such as dealing with uncertainty and variable generation, and is very important in order to utilize the power of Distributed Energy Resources (DER) as optimally as possible.
-It is important for a variety of use cases, each bringing different requirements along. Thus, in order to find a suitable model for the specific use case,
+Flexibility modeling in Cyber-Physical Energy Systems (CPES) is essential to meet different use cases, such as dealing with uncertainty and variable generation, and is very important in order to utilize the power of energy resources as optimally as possible.
+It is important for a variety of use cases, each bringing different requirements along. Thus, in order to identify or develop a suitable model for a specific use case,
 it is necessary to get an overview of existing requirements.
 
-This tutorial deals with typical steps to proceed when dealing with flexibility modeling. Instead of describing a detailed application of one specific flexibility model, we aim to provide a tutorial which can be used for any kind of flexibility model and helps users to find the correct model regarding their needs.
+This tutorial deals with typical steps to proceed when dealing with flexibility modeling. Instead of describing a detailed application of one specific flexibility model, we aim to provide a tutorial that can be used for any kind of flexibility model and that helps users find or develop a suitable model regarding their needs.
 We assume that the user tries to find a suitable model for flexibility, either modeling its own or using existing models.
 
-This tutorial therefore helps to identify the most relevant parameters of a flexibility model, to specify the requirements of the flexibility model and to categorize it accordingly. Once this is done, and the model can be described in detail, we provide a recommender to help find a suitable existing model. To reduce effort and increase effectiveness, it is recommended to search for existing models before implementing your own. Many models already exist. For this reason, it is better to search for an existing model and make an adjustment instead of implementing your own model. However, if no suitable model exists, the user is ready to implement his own model because he has categorized it accordingly.
+This tutorial therefore helps to identify the most relevant parameters of a flexibility model, to specify the requirements of the flexibility model, and to categorize it accordingly. Once this is done, and the model can be described in detail, we provide a recommender to help find a suitable existing model. To reduce effort and increase effectiveness, it is recommended to search for existing models before implementing your own. Many models already exist. For this reason, it is better to search for an existing model and make an adjustment instead of implementing your own model. However, if no suitable model exists, the user is ready to implement his own model because he has categorized it accordingly.
+The tutorial is structured as follows. First, we present the relevant parameters, each with their respective categories. Afterwards, is it discussed how the suitable flexibility model can be identified. In the last part, we discuss how to work with the respective model.
 
 ## Parameters of flexibility models
 In the following, we describe various parameters to categorize flexibility models.
-It is recommended to get an overview of the requirements of the flexibility model by answering the questions
-regarding the given categories. For some categories it might not be possible to have an answer at the beginning,
-however, we recommend trying to fill these requirements as detailed as possible in order to
-find a suitable flexibility model.
+It is recommended to get an overview of the requirements of the flexibility model by answering the questions regarding the given categories. For some categories it might not be possible to have an answer at the beginning, however, we recommend trying to fill these requirements as detailed as possible in order to find a suitable flexibility model.
 
 ### Flexibility
 Flexibility can be modeled as potential or as requirements.
@@ -88,10 +86,8 @@ Facilitates the matching of flexibility requirements with flexibility potentials
 ### Aggregation
 Refers to the model's ability to combine multiple smaller units of flexibility resources (like residential batteries, electric vehicles, or demand response participants) into a single, manageable entity. This aggregation allows for more effective coordination and utilization of distributed resources, enhancing their overall impact on grid stability and efficiency. By treating multiple small-scale assets as a unified group, operators can deploy flexibility more strategically, optimizing responses to grid demands and reducing operational complexities.
 
-## Finding the right flexibility model
-To find the right flexibility model, after getting an overview of the requirements of the scenario, we recommend
-to use our flexibility recommender (https://flexibility.offis.de/recommender.php).
-With this recommender, it is possible to find suitable flexibility models according to the respective use cases.
+## Identify the right flexibility model
+To find the right flexibility model, after getting an overview of the requirements of the scenario, we recommend using our [flexibility recommender](https://flexibility.offis.de/recommender.php). With this recommender, it is possible to find suitable flexibility models according to the respective use cases.
 For each of the requirements, it is possible to set the parameter accordingly. While doing so,
 each parameter can be set as mandatory, desired, or irrelevant. In this way, it is possible
 to receive recommendations, even if not all requirements are specified yet. Additionally, it can be set how many
