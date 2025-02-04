@@ -1,25 +1,21 @@
-# Flexibility modelling
-Flexibility modelling in Cyber-Physical Energy Systems is very important in order to
-utilise power of Distributed Energy Resources (DER) as optimal as possible.
-Flexibility modelling is important for a variety of use cases, each brining different
-requirements along. Thus, in order to find a suitable model for the specific use case,
+# Flexibility modeling
+Flexibility modeling in Cyber-Physical Energy Systems is very important in order to utilise the power of Distributed Energy Resources (DER) as optimally as possible.
+Flexibility modeling is important for a variety of use cases, each bringing different requirements along. Thus, in order to find a suitable model for the specific use case,
 it is necessary to get an overview of existing requirements.
-# ein model für alle -> paper
-# detail model
-To reduce effort and increase effectiveness, it is recommended to first look for existing
-models, before implementing an own model. Many models already exist. For this reason, it is better to
+
+To reduce effort and increase effectiveness, it is recommended to first look for existing models, before implementing an own model. Many models already exist. For this reason, it is better to
 check for an existing model and do an adaptation instead of implementing an own model.
 
 ## Parameters of flexibility models
-In the following, we describe various parameters to categorize flexibiliy models.
+In the following, we describe various parameters to categorize flexibility models.
 It is recommended to get an overview of the requirements of the flexibility model by answering the questions
 regarding the given categories. For some categories it might not be possible to have an answer at the beginning,
-however, we recommend to try to fill these requirements as detailed as possible in order to
+however, we recommend trying to fill these requirements as detailed as possible in order to
 find a suitable flexibility model.
 
 ### Flexibility
-Flexibility can be modelled as potential or as requirements.
-- **Flexibility potential** represents the capability of flexibility resources (like energy storage, demand response) to adjust their power output or
+Flexibility can be modeled as potential or as requirements.
+- **Flexibility potential** represents the capability of flexibility resources (like energy storage, and demand response) to adjust their power output or
 consumption, providing essential services like energy supply or demand balance.
 - **Flexibility requirement** refers to the overall needs of the power system for flexible resources to maintain stable operations and adapt to variability,
 such as that from renewable energy sources. This quantifies the adjustments necessary across the system to ensure reliability and prevent
@@ -35,10 +31,10 @@ The type(s) of the considered assets.
 - **Grid Infrastructure:** Advanced transmission technologies, including smart grids and dynamic line rating systems, that can adapt to changing conditions and manage flows more effectively.
 - **Electric Vehicles (EVs):** Their charging and discharging can be managed to provide flexibility, particularly as the prevalence of EVs continues to increase.
 - **Interconnectors:** High voltage lines connecting different regions or countries, allowing for the transfer of electricity across borders, which can be used to balance regional differences in demand and supply.
-- **Peaking Power Plants:** Typically gas turbines or hydro plants that can be ramped up quickly to meet sudden increases in electricity demand or unexpected drops in renewable generation.
+- **Peaking Power Plants:** Typically gas turbines or hydro plants can be ramped up quickly to meet sudden increases in electricity demand or unexpected drops in renewable generation.
 
 ### Classification
-- **Metric:** Uses predefined parameters to either deterministically quantify flexibility without considering uncertainties or Measures the likelihood of various flexibility scenarios using statistical methods.
+- **Metric:** Uses predefined parameters to either deterministically quantify flexibility without considering uncertainties or measure the likelihood of various flexibility scenarios using statistical methods.
 - **Machine Learning Model:** Employs machine learning techniques to predict and optimize flexibility based on historical data.
 - **Envelope:** Defines the operational boundaries or limits within which flexibility can be effectively measured or maintained. This includes the range of acceptable inputs, outputs, and constraints on flexibility metrics or predictions.
 
@@ -68,7 +64,7 @@ Some more details for the classification types are given in the following.
 ### Constraints
 - **Technical:** Define the physical limits of power system components, such as maximum power output and ramp rates.
 - **Service Guarantee:** Ensure that flexibility resources meet specific performance and reliability standards, such as response times and availability.
-- **Economic:** Focus on minimizing operational costs and optimizing financial outcomes from managing flexibility resources.
+- **Economic:** Focus on minimizing operational costs and optimizing financial outcomes by managing flexibility resources.
 
 ### Resolution
 Refers to the time granularity considered for analyzing power system operations and planning.
@@ -91,17 +87,17 @@ Facilitates the matching of flexibility requirements with flexibility potentials
 Refers to the model's ability to combine multiple smaller units of flexibility resources (like residential batteries, electric vehicles, or demand response participants) into a single, manageable entity. This aggregation allows for more effective coordination and utilization of distributed resources, enhancing their overall impact on grid stability and efficiency. By treating multiple small-scale assets as a unified group, operators can deploy flexibility more strategically, optimizing responses to grid demands and reducing operational complexities.
 
 ## Finding the right flexibility model
-For finding the right flexibility model, after getting an overview of the requirements of the scenario, we recommend
+To find the right flexibility model, after getting an overview of the requirements of the scenario, we recommend
 to use our flexibility recommender (https://flexibility.offis.de/recommender.php).
 With this recommender, it is possible to find suitable flexibility models according to the respective use cases.
-For each of the requirement, it is possible to set the parameter accordingly. While doing so,
-each parameter can be set as mandatory, desired or irrelevant. In this way, it is possible
-to receive recommendations, even if not all requirements are specified yet. Addtionally, it can be set how many
-parameters should minimum match with the models. This makes it very easy to make user-dependent settings.
+For each of the requirements, it is possible to set the parameter accordingly. While doing so,
+each parameter can be set as mandatory, desired, or irrelevant. In this way, it is possible
+to receive recommendations, even if not all requirements are specified yet. Additionally, it can be set how many
+parameters should match with the models. This makes it very easy to make user-dependent settings.
 After entering the parameters, respective models are shown, sorted by the number of requirements fitting.
 At the moment, x models are integrated into our database.
 
 ## Working with the respective models
-The recommended models can be used, adapted and integrated, depending on the actual use case.
-Some of the models are available open source. We recommend to use these and check for needs to adaption.
+The recommended models can be used, adapted, and integrated, depending on the actual use case.
+Some of the models are available open source. We recommend using these and checking for needs to adaption.
 If adaptions or extensions are necessary, we recommend to get in touch with the authors.
