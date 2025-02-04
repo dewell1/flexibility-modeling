@@ -1,0 +1,107 @@
+# Flexibility modelling
+Flexibility modelling in Cyber-Physical Energy Systems is very important in order to
+utilise power of Distributed Energy Resources (DER) as optimal as possible.
+Flexibility modelling is important for a variety of use cases, each brining different
+requirements along. Thus, in order to find a suitable model for the specific use case,
+it is necessary to get an overview of existing requirements.
+# ein model für alle -> paper
+# detail model
+To reduce effort and increase effectiveness, it is recommended to first look for existing
+models, before implementing an own model. Many models already exist. For this reason, it is better to
+check for an existing model and do an adaptation instead of implementing an own model.
+
+## Parameters of flexibility models
+In the following, we describe various parameters to categorize flexibiliy models.
+It is recommended to get an overview of the requirements of the flexibility model by answering the questions
+regarding the given categories. For some categories it might not be possible to have an answer at the beginning,
+however, we recommend to try to fill these requirements as detailed as possible in order to
+find a suitable flexibility model.
+
+### Flexibility
+Flexibility can be modelled as potential or as requirements.
+- **Flexibility potential** represents the capability of flexibility resources (like energy storage, demand response) to adjust their power output or
+consumption, providing essential services like energy supply or demand balance.
+- **Flexibility requirement** refers to the overall needs of the power system for flexible resources to maintain stable operations and adapt to variability,
+such as that from renewable energy sources. This quantifies the adjustments necessary across the system to ensure reliability and prevent
+disruptions.
+
+### Asset Types
+The type(s) of the considered assets.
+- **Energy Storage Systems:** Such as batteries, pumped hydro storage, and compressed air energy storage, which can absorb excess power during low demand and release it during peak demand.
+- **Demand Response Programs:** These involve adjusting the demand side of consumption, where consumers reduce or shift their electricity use in response to market signals or utility requests.
+- **Renewable Energy Sources:** Like wind turbines and solar panels, which are inherently variable and require flexible solutions to integrate their output smoothly into the grid.
+- **Distributed Generation:** Including small-scale units like diesel generators, microturbines, and combined heat and power (CHP) systems that can be controlled to help balance local demand and supply.
+- **Flexible Loads:** Industrial processes, heating and cooling systems, and other energy-intensive operations that can be adjusted in real-time to help balance the grid.
+- **Grid Infrastructure:** Advanced transmission technologies, including smart grids and dynamic line rating systems, that can adapt to changing conditions and manage flows more effectively.
+- **Electric Vehicles (EVs):** Their charging and discharging can be managed to provide flexibility, particularly as the prevalence of EVs continues to increase.
+- **Interconnectors:** High voltage lines connecting different regions or countries, allowing for the transfer of electricity across borders, which can be used to balance regional differences in demand and supply.
+- **Peaking Power Plants:** Typically gas turbines or hydro plants that can be ramped up quickly to meet sudden increases in electricity demand or unexpected drops in renewable generation.
+
+### Classification
+- **Metric:** Uses predefined parameters to either deterministically quantify flexibility without considering uncertainties or Measures the likelihood of various flexibility scenarios using statistical methods.
+- **Machine Learning Model:** Employs machine learning techniques to predict and optimize flexibility based on historical data.
+- **Envelope:** Defines the operational boundaries or limits within which flexibility can be effectively measured or maintained. This includes the range of acceptable inputs, outputs, and constraints on flexibility metrics or predictions.
+
+Some more details for the classification types are given in the following.
+
+- **Time Series - Cumulative:** Analyzes flexibility over a period by aggregating data to show cumulative potential or requirements.
+- **Time Series - Non-Cumulative:** Examines flexibility potentials or requirements at specific times without accumulating data over time.
+- **Set - Interval:** Represents flexibility within set boundaries defined by minimum and maximum values at a specific time.
+- **Set - Polytope - Single-Time-Step:** Defines flexibility as a geometric shape in a multidimensional space at a single time step, capturing constraints and capabilities.
+- **Set - Polytope - Multi-Time-Step:** Extends the single-time-step polytope model to cover multiple time steps, providing a broader view of flexibility over time.
+
+### Type
+- **Deterministic:** Using specific, fixed parameters and conditions to calculate flexibility needs and potentials. These models operate under the assumption that all inputs (such as demand forecasts, generation capacity, and operational constraints) are known and remain constant, leading to predictable and consistent outcomes.
+- **Probabilistic:** Accounting for the uncertainty inherent in energy systems by using probability distributions and stochastic processes to determine flexibility requirements and resources. These models consider variations in input data like renewable energy output, consumer demand, and equipment failures, providing a range of possible outcomes rather than a single deterministic result.
+
+### Time
+- **Discrete:** Using specific, fixed parameters and conditions to calculate flexibility needs and potentials. These models operate under the assumption that all inputs (such as demand forecasts, generation capacity, and operational constraints) are known and remain constant, leading to predictable and consistent outcomes.
+- **Continuous:** Accounting for the uncertainty inherent in energy systems by using probability distributions and stochastic processes to determine flexibility requirements and resources. These models consider variations in input data like renewable energy output, consumer demand, and equipment failures, providing a range of possible outcomes rather than a single deterministic result.
+
+### Metric
+- **Active power:** The real component of power that performs actual work in an electrical system, typically measured in watts (W) or megawatts (MW).
+- **Ramp-Rate:** The rate at which power output can be increased or decreased, usually measured in megawatts per minute (MW/min), indicating the flexibility of power generation or consumption.
+- **Reactive power:** The imaginary component of power that does not perform work but is necessary to maintain voltage levels for the stability of the power system, usually measured in volt-amperes reactive (VAR).
+- **Energy:** The total amount of work performed or electricity consumed over a period, typically measured in kilowatt-hours (kWh) or megawatt-hours (MWh).
+- **Voltage:** The electric potential difference between two points in a circuit, which drives the current through the electrical system, typically measured in volts (V).
+
+### Constraints
+- **Technical:** Define the physical limits of power system components, such as maximum power output and ramp rates.
+- **Service Guarantee:** Ensure that flexibility resources meet specific performance and reliability standards, such as response times and availability.
+- **Economic:** Focus on minimizing operational costs and optimizing financial outcomes from managing flexibility resources.
+
+### Resolution
+Refers to the time granularity considered for analyzing power system operations and planning.
+- **Short-term:** Focuses on immediate operational decisions, covering minutes to a day, essential for dispatching resources and managing real-time fluctuations in power supply.
+- **Long-term:** Used for strategic planning over weeks to years, crucial for infrastructure development, integration of renewables, and long-term investment decisions.
+
+### Sector Coupling
+The consideration of sector coupling depends on whether the flexibility resources involve multiple energy vectors, specifically heat and gas. Sector-coupled flexibility resources can include individual units such as CHP (Combined Heat and Power) plants and electrolyzers, or entire systems like gas networks.
+
+### Multi-time-scale
+ If checked, it implies that the specific flexibility model under consideration is capable of integrating and analyzing flexibility across multiple time scales (short-term, medium-term, long-term) simultaneously or dynamically. This means the model can handle and optimize flexibility requirements and resources across these different scales in a cohesive manner, which is essential for comprehensive energy system planning and operation.
+
+### Mediator
+Facilitates the matching of flexibility requirements with flexibility potentials within an energy system. It acts as an intermediary that helps integrate and optimize the use of available flexibility resources, ensuring that the power system can efficiently respond to fluctuations in demand and supply. Common examples of flexibility mediators include the power grid itself, which redistributes energy, and market mechanisms that allow for the trading of flexibility services to balance the system.
+
+### Uncertainty
+ Refers to the unpredictability associated with various factors that affect the balance between electricity supply and demand. This includes variability in renewable energy production due to weather conditions, fluctuations in consumer demand, and potential equipment malfunctions or failures. Addressing uncertainty in flexibility models is crucial for ensuring that the power system can reliably handle unexpected changes and maintain stability under diverse operational conditions.
+
+### Aggregation
+Refers to the model's ability to combine multiple smaller units of flexibility resources (like residential batteries, electric vehicles, or demand response participants) into a single, manageable entity. This aggregation allows for more effective coordination and utilization of distributed resources, enhancing their overall impact on grid stability and efficiency. By treating multiple small-scale assets as a unified group, operators can deploy flexibility more strategically, optimizing responses to grid demands and reducing operational complexities.
+
+## Finding the right flexibility model
+For finding the right flexibility model, after getting an overview of the requirements of the scenario, we recommend
+to use our flexibility recommender (https://flexibility.offis.de/recommender.php).
+With this recommender, it is possible to find suitable flexibility models according to the respective use cases.
+For each of the requirement, it is possible to set the parameter accordingly. While doing so,
+each parameter can be set as mandatory, desired or irrelevant. In this way, it is possible
+to receive recommendations, even if not all requirements are specified yet. Addtionally, it can be set how many
+parameters should minimum match with the models. This makes it very easy to make user-dependent settings.
+After entering the parameters, respective models are shown, sorted by the number of requirements fitting.
+At the moment, x models are integrated into our database.
+
+## Working with the respective models
+The recommended models can be used, adapted and integrated, depending on the actual use case.
+Some of the models are available open source. We recommend to use these and check for needs to adaption.
+If adaptions or extensions are necessary, we recommend to get in touch with the authors.
