@@ -96,6 +96,5 @@ After entering the parameters, respective models are shown, sorted by the number
 At the moment, x models are integrated into our database.
 
 ## Working with the respective models
-The recommended models can be used, adapted, and integrated, depending on the actual use case.
-Some of the models are available open source. We recommend using these and checking for needs to adaption.
-If adaptions or extensions are necessary, we recommend to get in touch with the authors.
+The recommended models can be used, adapted, and integrated, depending on the actual use case. Some of the models are available open source. We recommend using these and checking for needs to adaption.
+If adaptions or extensions are necessary, we recommend to get in touch with the authors. If, in a special case, no approach fits, the classification according to the previous parameters and the literature provided can help you to develop your own approach.
