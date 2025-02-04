@@ -1,10 +1,12 @@
-# Flexibility modeling
-Flexibility modeling in Cyber-Physical Energy Systems is very important in order to utilise the power of Distributed Energy Resources (DER) as optimally as possible.
-Flexibility modeling is important for a variety of use cases, each bringing different requirements along. Thus, in order to find a suitable model for the specific use case,
+# Tutorial on flexibility modeling
+Flexibility modeling in Cyber-Physical Energy Systems is essential to meet different use cases, such as dealing with uncertainty and variable generation, and is very important in order to utilize the power of Distributed Energy Resources (DER) as optimally as possible.
+It is important for a variety of use cases, each bringing different requirements along. Thus, in order to find a suitable model for the specific use case,
 it is necessary to get an overview of existing requirements.
 
-To reduce effort and increase effectiveness, it is recommended to first look for existing models, before implementing an own model. Many models already exist. For this reason, it is better to
-check for an existing model and do an adaptation instead of implementing an own model.
+This tutorial deals with typical steps to proceed when dealing with flexibility modeling. Instead of describing a detailed application of one specific flexibility model, we aim to provide a tutorial which can be used for any kind of flexibility model and helps users to find the correct model regarding their needs.
+We assume that the user tries to find a suitable model for flexibility, either modeling its own or using existing models.
+
+This tutorial therefore helps to identify the most relevant parameters of a flexibility model, to specify the requirements of the flexibility model and to categorize it accordingly. Once this is done, and the model can be described in detail, we provide a recommender to help find a suitable existing model. To reduce effort and increase effectiveness, it is recommended to search for existing models before implementing your own. Many models already exist. For this reason, it is better to search for an existing model and make an adjustment instead of implementing your own model. However, if no suitable model exists, the user is ready to implement his own model because he has categorized it accordingly.
 
 ## Parameters of flexibility models
 In the following, we describe various parameters to categorize flexibility models.
