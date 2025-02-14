@@ -9,10 +9,9 @@ class FlexmodelsPDOSQLite implements FlexmodelsDAO
     private static $instance = null;
     public static function getInstance()
     {
-        if (self::$instance == null) {
-            self::$instance = new FlexmodelsPDOSQLite();
+        if (self::$instance === null || !(self::$instance instanceof self)) {
+            self::$instance = new self();
         }
-
         return self::$instance;
     }
 
@@ -21,89 +20,88 @@ class FlexmodelsPDOSQLite implements FlexmodelsDAO
         global $abs_path;
 
         try {
-            $user = 'root';
-            $pw = null;
             $dsn = 'sqlite:' . $abs_path . '/db/flex.db';
-            return new PDO($dsn, $user, $pw);
+            $options = [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                PDO::ATTR_PERSISTENT => true
+            ];
+            return new PDO($dsn, null, null, $options);
         } catch (PDOException $e) {
+            error_log("Database connection error: " . $e->getMessage());
             throw new InternalErrorException();
         }
     }
-    public function getFlexmodelId($id)
+    public function getFlexmodelId(int $id): Flexmodel
     {
         try {
             $db = $this->getConnection();
-            $sql = "SELECT * FROM Flexmodel WHERE id=:id LIMIT 1";
+            $sql = "SELECT * FROM Flexmodel WHERE id = :id LIMIT 1";
             $command = $db->prepare($sql);
-            if (!$command) {
-                throw new InternalErrorException();
+            $command->execute([":id" => $id]);
+            $entry = $command->fetch(PDO::FETCH_ASSOC);
+
+            if (!$entry) {
+                throw new MissingEntryException("No entry found for ID: " . $id);
             }
-            if (!$command->execute([":id" => $id])) {
-                throw new InternalErrorException();
-            }
-            $result = $command->fetchAll();
-            if (empty($result)) {
-                throw new MissingEntryException();
-            }
-            $entry = $result[0];
+
             return new Flexmodel(
                 $entry["id"],
                 $entry["authors"],
                 $entry["title"],
-                $entry["year"],
+                $entry["year"]
             );
         } catch (PDOException $exc) {
-            throw new InternalErrorException();
+            error_log("Database error in getFlexmodelId: " . $exc->getMessage());
+            throw new InternalErrorException("Database error while retrieving Flexmodel ID: " . $id);
         }
     }
 
-    public function getFlexmodels()
+    public function getFlexmodels(): array
     {
         try {
             $db = $this->getConnection();
-            $sql = "SELECT * FROM Flexmodel";
-            $command = $db->prepare($sql);
-            if (!$command) {
-                throw new InternalErrorException();
-            }
-            if (!$command->execute()) {
-                throw new InternalErrorException();
-            }
-            $result = $command->fetchAll();
-
             $entries = [];
-            foreach ($result as $row) {
-                $entry = new Flexmodel(
+
+            // Query to fetch all rows from the Flexmodel table
+            $sql = "SELECT * FROM Flexmodel";
+            foreach ($db->query($sql, PDO::FETCH_ASSOC) as $row) {
+                // Create a new Flexmodel instance for each row
+                $entries[] = new Flexmodel(
                     $row["id"],
                     $row["authors"],
                     $row["title"],
                     $row["year"],
-                    $row["abstract"],
-                    $row["link"],
-                    $row["doi"],
-                    $row["methodology"],
-                    $row["usecase"],
-                    $row["implementation"],
-                    $row["param_flexibility"],
-                    $row["param_mediator"],
-                    $row["param_assettypes"],
-                    $row["param_type"],
-                    $row["param_aggregation"],
-                    $row["param_time"],
-                    $row["param_metric"],
-                    $row["param_resolution"],
-                    $row["param_constraints"],
-                    $row["param_classification"],
-                    $row["param_uncertainty"],
-                    $row["param_sectorcoupling"],
-                    $row["param_multitimescale"],
-                    $row["flexblox"],
+                    $row["abstract"] ?? null,
+                    $row["link"] ?? null,
+                    $row["doi"] ?? null,
+                    $row["methodology"] ?? null,
+                    $row["usecase"] ?? null,
+                    $row["implementation"] ?? null,
+                    $row["param_flexibility"] ?? null,
+                    $row["param_mediator"] ?? null,
+                    $row["param_assettypes"] ?? null,
+                    $row["param_type"] ?? null,
+                    $row["param_aggregation"] ?? null,
+                    $row["param_time"] ?? null,
+                    $row["param_metric"] ?? null,
+                    $row["param_resolution"] ?? null,
+                    $row["param_constraints"] ?? null,
+                    $row["param_classification"] ?? null,
+                    $row["param_uncertainty"] ?? null,
+                    $row["param_sectorcoupling"] ?? null,
+                    $row["param_multitimescale"] ?? null,
+                    $row["flexblox"] ?? null
                 );
-                $entries[] = $entry;
             }
+
             return $entries;
         } catch (PDOException $exc) {
-            throw new InternalErrorException();
+            // Log the specific database error and rethrow an internal error exception
+            error_log("Database error in getFlexmodels: " . $exc->getMessage());
+            throw new InternalErrorException("Failed to retrieve Flexmodels: " . $exc->getMessage());
         }
     }
+
+
 }

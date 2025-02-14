@@ -232,7 +232,7 @@ class Flexmodel implements JsonSerializable
     {
         return $this->param_classification;
     }
-    public function getParamUncertainity()
+    public function getParamUncertainty()
     {
         return $this->param_uncertainty;
     }
