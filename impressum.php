@@ -66,19 +66,7 @@ $_SESSION['currentpage'] = 'impressum';
 </head>
 
 <body>
-
-    <?php
-    if (isset($_SESSION['loggedin'])) {
-        if ($_SESSION['loggedin'] == true) {
-            include 'php/include/header_loggedin.php';
-        } else {
-            include 'php/include/header_loggedout.php';
-        }
-    } else {
-        $_SESSION['loggedin'] = false;
-        include 'php/include/header_loggedout.php';
-    } ?>
-    <!-- Notification system -->
+    <?php include 'php/include/header.php'; ?>
     <?php include 'php/include/notifications.php'; ?>
 
     <main>
@@ -191,19 +179,28 @@ $_SESSION['currentpage'] = 'impressum';
 
     <script>
         // Function to switch language content visibility and toggle flag button
-        function switchLanguage(language) {
-            if (language === 'en') {
-                document.getElementById('content-en').style.display = 'block';
-                document.getElementById('content-de').style.display = 'none';
-                document.querySelector('.en-flag').style.display = 'none';
-                document.querySelector('.de-flag').style.display = 'block';
-                document.getElementById('impressum-title').innerText = "Impressum";
+        document.addEventListener("DOMContentLoaded", function () {
+            let currentLanguage = localStorage.getItem("language") || "de";
+            switchLanguage(currentLanguage, false); // Initialisiere ohne erneut zu speichern
+        });
+
+        function switchLanguage(language, save = true) {
+            if (language === "en") {
+                document.getElementById("content-en").style.display = "block";
+                document.getElementById("content-de").style.display = "none";
+                document.querySelector(".en-flag").style.display = "none";
+                document.querySelector(".de-flag").style.display = "block";
+                document.getElementById("impressum-title").innerText = "Imprint";
             } else {
-                document.getElementById('content-de').style.display = 'block';
-                document.getElementById('content-en').style.display = 'none';
-                document.querySelector('.de-flag').style.display = 'none';
-                document.querySelector('.en-flag').style.display = 'block';
-                document.getElementById('impressum-title').innerText = "Impressum";
+                document.getElementById("content-de").style.display = "block";
+                document.getElementById("content-en").style.display = "none";
+                document.querySelector(".de-flag").style.display = "none";
+                document.querySelector(".en-flag").style.display = "block";
+                document.getElementById("impressum-title").innerText = "Impressum";
+            }
+
+            if (save) {
+                localStorage.setItem("language", language);
             }
         }
     </script>

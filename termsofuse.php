@@ -10,18 +10,7 @@ $_SESSION['currentpage'] = 'termsofuse';
 <html>
 
 <body>
-    <?php
-    if (isset($_SESSION['loggedin'])) {
-        if ($_SESSION['loggedin'] == true) {
-            include 'php/include/header_loggedin.php';
-        } else {
-            include 'php/include/header_loggedout.php';
-        }
-    } else {
-        $_SESSION['loggedin'] = false;
-        include 'php/include/header_loggedout.php';
-    } ?>
-    <!-- Notification system -->
+    <?php include 'php/include/header.php'; ?>
     <?php include 'php/include/notifications.php'; ?>
 
     <main>
@@ -31,7 +20,7 @@ $_SESSION['currentpage'] = 'termsofuse';
             <div class="content-box">
                 <p><strong>Effective Date:</strong> October 15, 2024</p>
 
-                <p>These Terms of Use govern the use of the "MyMovies" website and the related services provided by us.
+                <p>These Terms of Use govern the use of this website and the related services provided by us.
                     By using our website, you agree to these Terms of Use and our Privacy Policy. If you do not agree
                     with these terms, please do not use our website.</p>
 
