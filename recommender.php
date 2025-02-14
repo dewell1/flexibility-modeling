@@ -15,18 +15,7 @@ $sliderDefault = 9;
 <html>
 
 <body>
-  <?php
-  if (isset($_SESSION['loggedin'])) {
-    if ($_SESSION['loggedin'] == true) {
-      include 'php/include/header_loggedin.php';
-    } else {
-      include 'php/include/header_loggedout.php';
-    }
-  } else {
-    $_SESSION['loggedin'] = false;
-    include 'php/include/header_loggedout.php';
-  } ?>
-  <!-- Notification system -->
+  <?php include 'php/include/header.php'; ?>
   <?php include 'php/include/notifications.php'; ?>
 
   <main style="margin: 0 auto;">

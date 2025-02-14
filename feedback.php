@@ -63,18 +63,7 @@ $_SESSION['currentpage'] = 'feedback';
 </head>
 
 <body>
-    <?php
-    if (isset($_SESSION['loggedin'])) {
-        if ($_SESSION['loggedin'] == true) {
-            include 'php/include/header_loggedin.php';
-        } else {
-            include 'php/include/header_loggedout.php';
-        }
-    } else {
-        $_SESSION['loggedin'] = false;
-        include 'php/include/header_loggedout.php';
-    } ?>
-    <!-- Notification system -->
+    <?php include 'php/include/header.php'; ?>
     <?php include 'php/include/notifications.php'; ?>
 
     <main>

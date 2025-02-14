@@ -15,18 +15,7 @@ $sliderDefault = 9;
 <html>
 
 <body>
-  <?php
-  if (isset($_SESSION['loggedin'])) {
-    if ($_SESSION['loggedin'] == true) {
-      include 'php/include/header_loggedin.php';
-    } else {
-      include 'php/include/header_loggedout.php';
-    }
-  } else {
-    $_SESSION['loggedin'] = false;
-    include 'php/include/header_loggedout.php';
-  } ?>
-  <!-- Notification system -->
+  <?php include 'php/include/header.php'; ?>
   <?php include 'php/include/notifications.php'; ?>
 
   <main>
@@ -73,7 +62,8 @@ $sliderDefault = 9;
           <p>
             To begin, follow the <a target_blank href="help.php#help-tutorial">Step-by-Step guide</a> and explore the
             recommended models.
-            The tutorial demonstrates how to use the <b><a href="recommender.php" target="_blank">Flexibility Model Recommender</a></b> by walking through a sample
+            The tutorial demonstrates how to use the <b><a href="recommender.php" target="_blank">Flexibility Model
+                Recommender</a></b> by walking through a sample
             scenario of a <b>Virtual Power Plant (VPP)</b>. It covers the steps of exploring parameter options,
             selecting <b>mandatory</b>, <b>desired</b>, and <b>irrelevant</b> parameters for the scenario, adjusting
             match requirements, and retrieving matching flexibility models. By following these steps, users can

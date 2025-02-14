@@ -40,18 +40,7 @@ switch ($sort) {
 <html>
 
 <body>
-    <?php
-    if (isset($_SESSION['loggedin'])) {
-        if ($_SESSION['loggedin'] == true) {
-            include 'php/include/header_loggedin.php';
-        } else {
-            include 'php/include/header_loggedout.php';
-        }
-    } else {
-        $_SESSION['loggedin'] = false;
-        include 'php/include/header_loggedout.php';
-    } ?>
-    <!-- Notification system -->
+    <?php include 'php/include/header.php'; ?>
     <?php include 'php/include/notifications.php'; ?>
 
     <main>
@@ -85,16 +74,6 @@ switch ($sort) {
                         <p class="list-parameters" style="text-align:center"><strong>Multi-Time-Scale</strong></p>
                         <p class="list-parameters" style="text-align:center"><strong>Mediator</strong></p>
                         <p class="list-parameters" style="text-align:center"><strong>Constraints</strong></p>
-
-
-
-
-
-
-
-
-
-
                     </div>
                     <div class="flexmodellist-data">
                         <?php if (empty($flexmodelslist)): ?>
@@ -112,8 +91,7 @@ switch ($sort) {
                                     <p class="usecase"><?= htmlspecialchars($flexmodel->getUsecase()) ?></p>
                                     <p class="methodology"><?= htmlspecialchars($flexmodel->getMethodology()) ?></p>
                                     <p class="list-implementation">
-                                        <a target="_blank"
-                                            href="<?= htmlspecialchars($flexmodel->getImplementation()) ?>">
+                                        <a target="_blank" href="<?= htmlspecialchars($flexmodel->getImplementation()) ?>">
                                             <?= htmlspecialchars($flexmodel->getImplementation()) ?>
                                         </a>
                                     </p>
@@ -123,7 +101,7 @@ switch ($sort) {
                                     <p class="list-parameters"><?= htmlspecialchars($flexmodel->getParamFlexibility()) ?></p>
                                     <p class="list-parameters"><?= htmlspecialchars($flexmodel->getParamType()) ?></p>
                                     <p class="list-parameters"><?= htmlspecialchars($flexmodel->getParamMetric()) ?></p>
-                                    <p class="list-parameters"><?= htmlspecialchars($flexmodel->getParamUncertainity()) ?></p>
+                                    <p class="list-parameters"><?= htmlspecialchars($flexmodel->getParamUncertainty()) ?></p>
                                     <p class="list-parameters"><?= htmlspecialchars($flexmodel->getParamAggregation()) ?></p>
                                     <p class="list-parameters"><?= htmlspecialchars($flexmodel->getParamTime()) ?></p>
                                     <p class="list-parameters"><?= htmlspecialchars($flexmodel->getParamResolution()) ?></p>
